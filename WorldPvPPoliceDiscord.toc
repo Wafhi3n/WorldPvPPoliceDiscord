@@ -1,11 +1,17 @@
-## Interface: 16001
+## Interface: 16001, 120107
 ## Title: World PvP Police Guild - Discord
-## Notes: World PvP Police Guild - Discord - /wppd
+## Notes: World PvP Police Guild - Discord - /wpp discord
 ## Author: Wafhien
 ## Version: 0.1.0
+## Dependencies: WorldPvPPolice
 ## SavedVariables: WorldPvPPoliceDiscordDB
 
 # Genere par scripts\new_addon.ps1 le 2026-11-09 - client vise : forever.
+# 120107 = PTR de Retail 12.1.7 (Midnight), comme l'addon de base : les deux se chargent ensemble sur
+# le PTR (deploy.ps1 retailptr), sinon le module serait "perime" la ou la base se charge.
+# Le module de World PvP Police Guild qui ecrit les appels sur le Discord de la guilde (bot World PvP
+# Police) : il se branche sur la prise de la base (WorldPvPPolice_Bridge.lua). Sans la base, le jeu
+# ne le charge pas.
 # Un .lua ajoute ici : sur Forever, /reload suffit (mesure le 2026-09-26) ; sur l'Era il fallait
 # relancer le client. Un addon TOUT NEUF dans le dossier demande toujours de relancer le client.
 
@@ -15,5 +21,9 @@ WorldPvPPoliceDiscord_Locale_enUS.lua
 WorldPvPPoliceDiscord_Locale_deDE.lua
 WorldPvPPoliceDiscord_Locale_esES.lua
 
-# Socle : table d'addon, SavedVariables, commande /wppd.
+# Socle : SavedVariables, /wpp discord et /wpp fusion, la case dans la page d'options de la base.
 WorldPvPPoliceDiscord.lua
+
+# Le fil Discord de la guilde, puis ce que le module fait de l'appel (branche sur la base).
+WorldPvPPoliceDiscord_Stream.lua
+WorldPvPPoliceDiscord_Bridge.lua
