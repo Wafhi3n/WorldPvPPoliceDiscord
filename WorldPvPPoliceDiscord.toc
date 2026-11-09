@@ -1,0 +1,19 @@
+## Interface: 16001
+## Title: World PvP Police Guild - Discord
+## Notes: World PvP Police Guild - Discord - /wppd
+## Author: Wafhien
+## Version: 0.1.0
+## SavedVariables: WorldPvPPoliceDiscordDB
+
+# Genere par scripts\new_addon.ps1 le 2026-11-09 - client vise : forever.
+# Un .lua ajoute ici : sur Forever, /reload suffit (mesure le 2026-09-26) ; sur l'Era il fallait
+# relancer le client. Un addon TOUT NEUF dans le dossier demande toujours de relancer le client.
+
+# Localisation : la CLE est le texte FRANCAIS, chaque autre langue est un overlay charge APRES.
+WorldPvPPoliceDiscord_Locale.lua
+WorldPvPPoliceDiscord_Locale_enUS.lua
+WorldPvPPoliceDiscord_Locale_deDE.lua
+WorldPvPPoliceDiscord_Locale_esES.lua
+
+# Socle : table d'addon, SavedVariables, commande /wppd.
+WorldPvPPoliceDiscord.lua
