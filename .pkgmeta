@@ -2,6 +2,8 @@ package-as: WorldPvPPoliceDiscord
 manual-changelog:
   filename: CHANGELOG.md
   markup-type: markdown
+required-dependencies:
+  - pvp-police
 ignore:
   - CURSEFORGE.md
   - .gitignore
