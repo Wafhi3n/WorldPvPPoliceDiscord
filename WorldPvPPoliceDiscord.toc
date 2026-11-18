@@ -1,14 +1,16 @@
-## Interface: 16001, 120107
+## Interface: 16001
 ## Title: World PvP Police Guild - Discord
-## Notes: World PvP Police Guild - Discord - /wpp discord
+## Notes: Posts World PvP Police Guild calls to your guild's Discord, for the World PvP Police bot - /wpp discord
+## Notes-frFR: Écrit les appels de World PvP Police Guild sur le Discord de la guilde, pour le bot World PvP Police - /wpp discord
+## Notes-deDE: Schreibt die Rufe von World PvP Police Guild in den Discord der Gilde, für den World-PvP-Police-Bot - /wpp discord
+## Notes-esES: Publica las llamadas de World PvP Police Guild en el Discord de la hermandad, para el bot World PvP Police - /wpp discord
 ## Author: Wafhien
-## Version: 0.1.0
+## Version: 0.1.0-beta
 ## Dependencies: WorldPvPPolice
 ## SavedVariables: WorldPvPPoliceDiscordDB
 
 # Genere par scripts\new_addon.ps1 le 2026-11-09 - client vise : forever.
-# 120107 = PTR de Retail 12.1.7 (Midnight), comme l'addon de base : les deux se chargent ensemble sur
-# le PTR (deploy.ps1 retailptr), sinon le module serait "perime" la ou la base se charge.
+# 120107 (PTR de Retail 12.1.7) retire pour la 1re release, comme la base (user, 2026-11-18).
 # Le module de World PvP Police Guild qui ecrit les appels sur le Discord de la guilde (bot World PvP
 # Police) : il se branche sur la prise de la base (WorldPvPPolice_Bridge.lua). Sans la base, le jeu
 # ne le charge pas.

@@ -1,15 +1,29 @@
 # World PvP Police Guild - Discord
 
-Module de l'addon World PvP Police Guild (`WorldPvPPolice`), client visé : forever (et le PTR de
-Retail tant que Forever sert peu). Il écrit les appels à l'aide, les « J'arrive » et les « C'est
-réglé » sur le Discord de la guilde, où le bot World PvP Police (`WorldPvPPoliceBot`, à part) en fait
-des cartes. Sans le bot sur son Discord, une guilde n'en a pas besoin : l'addon de base suffit.
+An optional addon for [World PvP Police Guild](https://github.com/Wafhi3n/WorldPvPPolice), for WoW:
+Forever. It writes the guild's calls for help, the "On my way" answers and the "All clear" to the
+guild's Discord through the game's own Discord link, where the
+[World PvP Police bot](https://github.com/Wafhi3n/WorldPvPPoliceBot) turns them into cards. A guild
+without the bot doesn't need it.
 
-Il n'a pas de commande à lui : il ajoute `/wpp discord` (où en est le lien) et `/wpp fusion on|off`
-(guilde en chat fusionné) aux commandes de `/wpp`, et sa case à la page d'options de l'addon. Pour le
-couper, on le désactive dans la liste des AddOns. Spec : `WorldPvPPolice/docs/specs/appel-sans-pont-discord.md`
-(S7) et `appel-a-l-aide.md`.
+It has no command of its own; it adds two to `/wpp`:
 
-Développé dans l'écosystème `F:\AddonDevellopement` : portes, déploiement et banc sont décrits dans
-le `CLAUDE.md` de l'outillage. Registre de ce qui a été vu fonctionner en jeu :
-`docs/verif-registre.md`.
+- `/wpp discord`: whether the guild is linked to Discord. It needs the guild linked to a Discord
+  server with Discord chat separate from guild chat (guild leader or officer, Guild & Communities).
+- `/wpp fusion on`, `/wpp fusion off`: for a guild on merged chat, also write the calls into guild
+  chat, where the whole guild sees them. Off by default; also a box on the addon's settings page.
+
+To turn it off, disable it in the AddOns list: calls then stay in game.
+
+Languages: English, French, German, Spanish; other game languages fall back to English.
+
+## How it works
+
+`WorldPvPPoliceDiscord_Stream.lua` finds the guild's Discord stream (`C_Club`).
+`WorldPvPPoliceDiscord_Bridge.lua` plugs into the base addon's hook (`WorldPvPPolice_Bridge.lua`)
+and writes there with `C_Club.SendMessage`, on the player's own click, since the game refuses it
+otherwise. A line only counts as sent once it comes back as `CHAT_MSG_GUILD_DISCORD`. The line format is shared with the bot and described in the base
+addon's `WorldPvPPolice_Line.lua`.
+
+Developed in a private workspace with its own checks and headless tests; what has been seen working
+in game is logged in `docs/verif-registre.md`. MIT licensed.
